@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utkarsh - DevOps & Cloud Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            overflow-x: hidden;
+        }
+
+        /* Full-screen canvas for animated background */
+        #particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-color: #0d1117;
+        }
+
+        /* Animation classes for sections */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s ease-out, transform 0.8s ease-out;
+        }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Typewriter effect for the main title */
+        .typewriter-title {
+            display: inline-block;
+            overflow: hidden;
+            border-right: .15em solid #3b82f6;
+            white-space: nowrap;
+            letter-spacing: .1em;
+            animation: blink-caret .75s step-end infinite;
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #3b82f6; }
+        }
+
+        /* Modal styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #1a202c;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            width: 90%;
+            max-width: 700px;
+            position: relative;
+        }
+        .close-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            color: #a0aec0;
+            cursor: pointer;
+        }
+        .copy-button {
+            background-color: #3b82f6;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        .copy-button:hover {
+            background-color: #2563eb;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Canvas for animated background -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-50 bg-gray-800 bg-opacity-90 backdrop-blur-md shadow-md">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-2 text-2xl font-bold text-white">
+                <img src="uploaded:Z7pdXCk1hT-S9wng3mt2Z__2_-removebg-preview.png" alt="UtkarshInCloud" class="h-10 w-auto">
+            </a>
+            <div class="flex space-x-4 md:space-x-8 text-sm md:text-base">
+                <a href="#about" class="text-gray-300 hover:text-white transition duration-300">About</a>
+                <a href="#skills" class="text-gray-300 hover:text-white transition duration-300">Skills</a>
+                <a href="#projects" class="text-gray-300 hover:text-white transition duration-300">Projects</a>
+                <a href="https://utkarshumre.tech" target="_blank" class="text-gray-300 hover:text-white transition duration-300">Blogs</a>
+                <a href="#hire" class="text-gray-300 hover:text-white transition duration-300">Hire Me</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-6 py-12 md:py-24">
+
+        <!-- Hero/About Me Section -->
+        <section id="about" class="flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-16 mb-24 animate-on-scroll">
+            <div class="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-lg border-4 border-gray-700">
+                <img id="about-image" src="uploaded:Gemini_Generated_Image_j6tk91j6tk91j6tk.jpg" alt="Utkarsh Umre" class="w-full h-full object-cover">
+            </div>
+            <div class="text-center md:text-left flex-shrink-0">
+                <h1 id="animated-title-text" class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-2">
+                    <!-- The title text will be dynamically generated here -->
+                </h1>
+                <p id="about-description" class="text-base md:text-lg text-gray-400 max-w-xl mx-auto md:mx-0">
+                    A certified Google Cloud and Kubernetes professional dedicated to building and optimizing robust, scalable, and secure cloud infrastructures. I specialize in automating software delivery pipelines and managing containerized applications to drive efficiency and innovation.
+                </p>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section class="mb-24 animate-on-scroll">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-white">Certifications</h2>
+            <div class="flex flex-wrap justify-center gap-4 md:gap-8">
+                <div class="px-6 py-3 bg-gray-700 rounded-full shadow-md">
+                    <span class="text-sm md:text-base text-gray-300">Google Cloud Certified</span>
+                </div>
+                <div class="px-6 py-3 bg-gray-700 rounded-full shadow-md">
+                    <span class="text-sm md:text-base text-gray-300">Kubernetes Certified</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="mb-24 animate-on-scroll">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-white">Technical Skills</h2>
+            <div class="flex flex-wrap justify-center gap-4 md:gap-6">
+                <div class="bg-gray-700 rounded-md px-4 py-2 shadow-md hover:scale-110 transition duration-300 cursor-pointer">Kubernetes</div>
+                <div class="bg-gray-700 rounded-md px-4 py-2 shadow-md hover:scale-110 transition duration-300 cursor-pointer">Docker</div>
+                <div class="bg-gray-700 rounded-md px-4 py-2 shadow-md hover:scale-110 transition duration-300 cursor-pointer">Linux</div>
+                <div class="bg-gray-700 rounded-md px-4 py-2 shadow-md hover:scale-110 transition duration-300 cursor-pointer">Golang</div>
+                <div class="bg-gray-700 rounded-md px-4 py-2 shadow-md hover:scale-110 transition duration-300 cursor-pointer">Python</div>
+                <div class="bg-gray-700 rounded-md px-4 py-2 shadow-md hover:scale-110 transition duration-300 cursor-pointer">GitHub</div>
+                <div class="bg-gray-700 rounded-md px-4 py-2 shadow-md hover:scale-110 transition duration-300 cursor-pointer">GitHub Actions</div>
+                <div class="bg-gray-700 rounded-md px-4 py-2 shadow-md hover:scale-110 transition duration-300 cursor-pointer">Google Cloud</div>
+                <div class="bg-gray-700 rounded-md px-4 py-2 shadow-md hover:scale-110 transition duration-300 cursor-pointer">Networking</div>
+                <div class="bg-gray-700 rounded-md px-4 py-2 shadow-md hover:scale-110 transition duration-300 cursor-pointer">AWS</div>
+                <div class="bg-gray-700 rounded-md px-4 py-2 shadow-md hover:scale-110 transition duration-300 cursor-pointer">CI/CD</div>
+                <div class="bg-gray-700 rounded-md px-4 py-2 shadow-md hover:scale-110 transition duration-300 cursor-pointer">Prometheus</div>
+                <div class="bg-gray-700 rounded-md px-4 py-2 shadow-md hover:scale-110 transition duration-300 cursor-pointer">ArgoCD</div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="mb-24 animate-on-scroll">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-white">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-700 hover:scale-105 transition duration-300">
+                    <h3 class="text-2xl font-semibold text-white mb-2">Golang Kubernetes Operator</h3>
+                    <p class="text-gray-400 mb-4">
+                        A custom Kubernetes operator built in Golang to automate the deployment and management of a specific application on a Kubernetes cluster. It leverages the client-go library to interact with the Kubernetes API, ensuring the desired state of resources is maintained.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 mt-6">
+                        <a href="#" class="text-blue-400 hover:text-blue-500 transition duration-300 font-medium">Learn More &rarr;</a>
+                        <button class="generate-summary-btn bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full shadow-md text-sm transition duration-300" data-project-id="1">
+                            ✨ Generate Summary
+                        </button>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-700 hover:scale-105 transition duration-300">
+                    <h3 class="text-2xl font-semibold text-white mb-2">Golang Terraform Provider</h3>
+                    <p class="text-gray-400 mb-4">
+                        Developed a custom Terraform provider in Golang to manage resources for an internal service. This project demonstrates proficiency in infrastructure as code (IaC) principles, state management, and the Go programming language, enabling consistent and repeatable infrastructure deployments.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 mt-6">
+                        <a href="#" class="text-blue-400 hover:text-blue-500 transition duration-300 font-medium">Learn More &rarr;</a>
+                        <button class="generate-summary-btn bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full shadow-md text-sm transition duration-300" data-project-id="2">
+                            ✨ Generate Summary
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hire Me Section -->
+        <section id="hire" class="text-center bg-gray-800 p-12 rounded-xl shadow-lg border border-gray-700 animate-on-scroll">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Let's Connect!</h2>
+            <p class="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
+                I am actively seeking new opportunities to apply my skills in DevOps and Cloud Engineering. If you are looking for a certified professional with expertise in Google Cloud, Kubernetes, and automating infrastructure, I would love to hear from you.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <form action="https://formspree.io/f/your-form-id" method="POST" class="w-full max-w-md">
+                    <div class="space-y-4">
+                        <div>
+                            <input type="text" name="name" placeholder="Your Name" class="w-full bg-gray-700 text-white border-none rounded-md py-3 px-4 focus:ring-2 focus:ring-blue-600 focus:outline-none" required>
+                        </div>
+                        <div>
+                            <input type="email" name="email" placeholder="Your Email" class="w-full bg-gray-700 text-white border-none rounded-md py-3 px-4 focus:ring-2 focus:ring-blue-600 focus:outline-none" required>
+                        </div>
+                        <div>
+                            <textarea name="message" rows="4" placeholder="Your Message" class="w-full bg-gray-700 text-white border-none rounded-md py-3 px-4 focus:ring-2 focus:ring-blue-600 focus:outline-none" required></textarea>
+                        </div>
+                        <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                            <button type="submit" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition duration-300 hover:scale-105">
+                                Send Message
+                            </button>
+                            <button id="generate-bio-btn" class="w-full sm:w-auto bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition duration-300 hover:scale-105">
+                                ✨ Generate Bio
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer Section -->
+    <footer class="bg-gray-900 py-8 mt-24">
+        <div class="container mx-auto px-6 text-center">
+            <div class="text-xl font-bold text-white mb-2">Utkarsh Umre</div>
+            <div class="text-gray-400 mb-4">utkarshumre@outlook.com</div>
+            <div class="flex flex-wrap justify-center space-x-6 text-white mb-4">
+                <a href="https://x.com/utkarshumre_" target="_blank" class="hover:text-blue-400 transition duration-300">Twitter</a>
+                <a href="https://www.youtube.com/@utkarshincloud" target="_blank" class="hover:text-blue-400 transition duration-300">YouTube</a>
+                <a href="https://www.linkedin.com/in/utkarshumre/" target="_blank" class="hover:text-blue-400 transition duration-300">LinkedIn</a>
+                <a href="https://www.instagram.com/utkarsh_u7/" target="_blank" class="hover:text-blue-400 transition duration-300">Instagram</a>
+                <a href="https://bsky.app/profile/utkarsh786.bsky.social" target="_blank" class="hover:text-blue-400 transition duration-300">Bluesky</a>
+                <a href="https://github.com/utkarshumre" target="_blank" class="hover:text-blue-400 transition duration-300">GitHub</a>
+                <a href="https://www.reddit.com/user/utkarsh_tech/" target="_blank" class="hover:text-blue-400 transition duration-300">Reddit</a>
+                <a href="https://www.credly.com/users/utkarsh-umre/badges" target="_blank" class="hover:text-blue-400 transition duration-300">Credly</a>
+            </div>
+            <div class="text-sm text-gray-500 mt-4">&copy; 2025 Utkarsh Umre. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <!-- Modal for Generated Content -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span id="close-modal-btn" class="close-button">&times;</span>
+            <h3 id="modal-title" class="text-2xl font-bold mb-4"></h3>
+            <div id="modal-content-text" class="text-base text-gray-300 leading-relaxed max-h-96 overflow-y-auto"></div>
+            <div class="flex justify-center mt-4">
+                <button id="copy-text-btn" class="copy-button">Copy to Clipboard</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const projects = {
+            1: {
+                title: "Golang Kubernetes Operator",
+                description: "A custom Kubernetes operator built in Golang to automate the deployment and management of a specific application on a Kubernetes cluster. It leverages the client-go library to interact with the Kubernetes API, ensuring the desired state of resources is maintained."
+            },
+            2: {
+                title: "Golang Terraform Provider",
+                description: "Developed a custom Terraform provider in Golang to manage resources for an internal service. This project demonstrates proficiency in infrastructure as code (IaC) principles, state management, and the Go programming language, enabling consistent and repeatable infrastructure deployments."
+            }
+        };
+
+        const rollSpeed = 50;
+        const newPhraseDelay = 1500;
+        const animatedTitleElement = document.getElementById('animated-title-text');
+        const modal = document.getElementById('modal');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const modalTitle = document.getElementById('modal-title');
+        const modalContentText = document.getElementById('modal-content-text');
+        const copyBtn = document.getElementById('copy-text-btn');
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        let isRunning = false;
+        let particles = [];
+
+        // Particle Class
+        class Particle {
+            constructor(x, y, vx, vy, radius) {
+                this.x = x;
+                this.y = y;
+                this.vx = vx;
+                this.vy = vy;
+                this.radius = radius;
+                this.alpha = 1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+                ctx.fillStyle = `rgba(189, 147, 249, ${this.alpha})`;
+                ctx.fill();
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // Bounce off walls
+                if (this.x + this.radius > canvas.width || this.x - this.radius < 0) {
+                    this.vx = -this.vx;
+                }
+                if (this.y + this.radius > canvas.height || this.y - this.radius < 0) {
+                    this.vy = -this.vy;
+                }
+            }
+        }
+
+        function createParticles() {
+            particles = [];
+            for (let i = 0; i < 150; i++) {
+                const radius = Math.random() * 2 + 1;
+                const x = Math.random() * (canvas.width - radius * 2) + radius;
+                const y = Math.random() * (canvas.height - radius * 2) + radius;
+                const vx = (Math.random() - 0.5) * 1.5;
+                const vy = (Math.random() - 0.5) * 1.5;
+                particles.push(new Particle(x, y, vx, vy, radius));
+            }
+        }
+
+        function connectParticles() {
+            let opacity = 1;
+            for (let a = 0; a < particles.length; a++) {
+                for (let b = a; b < particles.length; b++) {
+                    const dx = particles[a].x - particles[b].x;
+                    const dy = particles[a].y - particles[b].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 120) {
+                        opacity = 1 - (distance / 120);
+                        ctx.strokeStyle = `rgba(45, 125, 255, ${opacity})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[a].x, particles[a].y);
+                        ctx.lineTo(particles[b].x, particles[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animateCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            connectParticles();
+            requestAnimationFrame(animateCanvas);
+        }
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            createParticles(); // Recreate particles on resize to avoid them bunching up
+        }
+
+        // Title Animation Logic
+        async function rollPhrase(startPhrase, endPhrase) {
+            let rollIndex = 0;
+            const maxLength = Math.max(startPhrase.length, endPhrase.length);
+            
+            while (rollIndex <= maxLength) {
+                let tempWord = '';
+                for (let j = 0; j < maxLength; j++) {
+                    if (j < rollIndex && j < endPhrase.length) {
+                        tempWord += endPhrase[j];
+                    } else if (j >= endPhrase.length) {
+                        tempWord += ' '; 
+                    } else {
+                        const randomChar = String.fromCharCode(65 + Math.floor(Math.random() * 26));
+                        tempWord += randomChar;
+                    }
+                }
+                animatedTitleElement.textContent = tempWord;
+                rollIndex++;
+                await new Promise(resolve => setTimeout(resolve, rollSpeed));
+            }
+            
+            animatedTitleElement.textContent = endPhrase;
+            await new Promise(resolve => setTimeout(resolve, newPhraseDelay));
+        }
+
+        async function runAnimationSequence() {
+            const phrases = ["Hi, I'm Utkarsh", "DevOps Engineer", "Cloud Engineer", "Tech communities", "Open source"];
+            let currentPhraseIndex = 0;
+            
+            while (isRunning) {
+                const currentPhrase = phrases[currentPhraseIndex];
+                const nextPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+                const nextPhrase = phrases[nextPhraseIndex];
+                
+                await rollPhrase(currentPhrase, nextPhrase);
+                
+                currentPhraseIndex = nextPhraseIndex;
+            }
+        }
+
+        function startAnimation() {
+            if (!isRunning) {
+                isRunning = true;
+                runAnimationSequence();
+            }
+        }
+
+        // --- Gemini API Integration ---
+        const apiKey = "";
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+        async function callGeminiAPI(systemPrompt, userQuery, useGoogleSearch = false) {
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+            };
+
+            if (useGoogleSearch) {
+                payload.tools = [{ "google_search": {} }];
+            }
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const result = await response.json();
+                const text = result?.candidates?.[0]?.content?.parts?.[0]?.text || "Failed to generate content.";
+                return text;
+            } catch (error) {
+                console.error("Gemini API call failed:", error);
+                return "Sorry, I couldn't generate the content. Please try again later.";
+            }
+        }
+
+        async function generateProjectSummary(projectId) {
+            const project = projects[projectId];
+            if (!project) return "Project not found.";
+
+            const projectTitle = project.title;
+            const projectDescription = project.description;
+            const systemPrompt = `You are a professional technical writer and DevOps expert. Expand on the following project description, providing more context and a potential real-world application. Focus on a clear, professional tone. Keep it under 200 words.`;
+            const userQuery = `Project Title: ${projectTitle}\nProject Description: ${projectDescription}`;
+
+            return await callGeminiAPI(systemPrompt, userQuery);
+        }
+
+        async function generateBio() {
+            const skills = [
+                'Kubernetes', 'Docker', 'Linux', 'Golang', 'Python', 'GitHub',
+                'GitHub Actions', 'Google Cloud', 'Networking', 'AWS', 'CI/CD',
+                'Prometheus', 'ArgoCD'
+            ];
+            const systemPrompt = `You are a professional resume writer. Write a concise, impactful, and compelling professional summary for a DevOps and Cloud Engineer. The summary should highlight their expertise, key skills and passion. Focus on a confident, action-oriented tone. Keep it under 100 words.`;
+            const userQuery = `Write a professional bio for a DevOps and Cloud Engineer with the following skills: ${skills.join(', ')}.`;
+
+            return await callGeminiAPI(systemPrompt, userQuery);
+        }
+
+        // Event listeners
+        document.querySelectorAll('.generate-summary-btn').forEach(button => {
+            button.addEventListener('click', async () => {
+                const projectId = button.dataset.projectId;
+                modalTitle.textContent = `Expanded Summary`;
+                modalContentText.innerHTML = `<div class="flex justify-center items-center py-8 text-white"><svg class="animate-spin -ml-1 mr-3 h-8 w-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>Generating...</div>`;
+                modal.style.display = 'flex';
+
+                const generatedText = await generateProjectSummary(projectId);
+                modalContentText.textContent = generatedText;
+            });
+        });
+
+        document.getElementById('generate-bio-btn').addEventListener('click', async () => {
+            modalTitle.textContent = `AI-Powered Bio`;
+            modalContentText.innerHTML = `<div class="flex justify-center items-center py-8 text-white"><svg class="animate-spin -ml-1 mr-3 h-8 w-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>Generating...</div>`;
+                modal.style.display = 'flex';
+
+            const generatedText = await generateBio();
+            modalContentText.textContent = generatedText;
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        copyBtn.addEventListener('click', () => {
+            const textToCopy = modalContentText.textContent;
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                copyBtn.textContent = 'Copied!';
+                setTimeout(() => {
+                    copyBtn.textContent = 'Copy to Clipboard';
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        });
+
+        // Initial setup and Intersection Observer
+        document.addEventListener('DOMContentLoaded', () => {
+            startAnimation();
+            resizeCanvas();
+            animateCanvas();
+        });
+
+        window.addEventListener('resize', resizeCanvas);
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.25
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
